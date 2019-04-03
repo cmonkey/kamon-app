@@ -11,6 +11,11 @@ class KamonApp {
     Kamon.start()
   }
 
+  def metricsByCounter(incrent: Int) = {
+    val someCounter = Kamon.metrics.counter("some-counter")
+    someCounter.increment(incrent)
+  }
+
   def stop() = {
     Kamon.shutdown()
   }
