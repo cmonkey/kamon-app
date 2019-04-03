@@ -1,0 +1,1 @@
+# kamon-scala-app
