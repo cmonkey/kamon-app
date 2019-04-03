@@ -2,6 +2,7 @@ package org.excavator.kamon.test
 
 import org.excavator.kamon.KamonApp
 import org.junit.jupiter.api._
+import org.junit.jupiter.api.Assertions._
 import org.slf4j.LoggerFactory
 
 class KamonTest{
@@ -13,6 +14,12 @@ class KamonTest{
   def testKamon() = {
     KamonTest.kamonApp.tracerSegmentByBusiness()
     KamonTest.kamonApp.tracerSegmentByValidator()
+
+    val tracerCurrentToken = KamonTest.kamonApp.tracerCurrentToken()
+
+    logger.info("creating user [token {}]", tracerCurrentToken)
+
+    assertNotNull(tracerCurrentToken)
   }
 }
 
