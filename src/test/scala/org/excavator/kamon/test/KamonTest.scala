@@ -15,6 +15,9 @@ class KamonTest{
     KamonTest.kamonApp.tracerSegmentByBusiness()
     KamonTest.kamonApp.tracerSegmentByValidator()
 
+    KamonTest.kamonApp.metricsByCounter(1000)
+    KamonTest.kamonApp.metricsByHistogram(1000)
+
     val tracerCurrentToken = KamonTest.kamonApp.tracerCurrentToken()
 
     logger.info("creating user [token {}]", tracerCurrentToken)
