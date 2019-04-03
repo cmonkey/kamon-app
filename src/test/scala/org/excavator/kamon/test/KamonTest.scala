@@ -1,7 +1,7 @@
 package org.excavator.kamon.test
 
+import org.excavator.kamon.KamonApp
 import org.junit.jupiter.api._
-import org.junit.jupiter.api.Assertions._
 import org.slf4j.LoggerFactory
 
 class KamonTest{
@@ -11,14 +11,24 @@ class KamonTest{
   @DisplayName("testKamon")
   @RepeatedTest(10)
   def testKamon() = {
-    assertNotNull("")
+    KamonTest.kamonApp.tracerSegmentByBusiness()
+    KamonTest.kamonApp.tracerSegmentByValidator()
   }
 }
 
 object KamonTest {
 
+  var kamonApp: KamonApp = null
+
   @BeforeAll
   def initServer() = {
+    kamonApp = new KamonApp
+    kamonApp.start()
+  }
+
+  @AfterAll
+  def stopServer() = {
+    kamonApp.stop()
   }
 
 }
