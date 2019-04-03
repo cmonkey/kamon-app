@@ -20,6 +20,7 @@
         <rsocket.version>0.12.1</rsocket.version>
         <rsocket-rpc.version>0.2.16</rsocket-rpc.version>
         <kamon.version>0.6.7</kamon.version>
+        <akka.version>2.5.14</akka.version>
 
         <!-- plugin start -->
         <maven.compiler.plugin>3.8.0</maven.compiler.plugin>
