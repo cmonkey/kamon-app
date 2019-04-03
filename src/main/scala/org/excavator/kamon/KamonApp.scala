@@ -16,6 +16,11 @@ class KamonApp {
     someCounter.increment(incrent)
   }
 
+  def metricsByHistogram(record: Int) = {
+    val someHistogram =  Kamon.metrics.histogram("some-histogram")
+    someHistogram.record(record)
+  }
+
   def stop() = {
     Kamon.shutdown()
   }
