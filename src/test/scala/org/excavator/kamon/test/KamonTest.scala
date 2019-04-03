@@ -10,7 +10,7 @@ class KamonTest{
 
   @Test
   @DisplayName("testKamon")
-  @RepeatedTest(10)
+  @RepeatedTest(10000)
   def testKamon() = {
     KamonTest.kamonApp.tracerSegmentByBusiness()
     KamonTest.kamonApp.tracerSegmentByValidator()
