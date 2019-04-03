@@ -31,4 +31,9 @@ class KamonApp {
 
     segment.finish()
   }
+
+  def tracerCurrentToken() = {
+    Tracer.currentContext.token
+  }
+
 }
