@@ -1,6 +1,9 @@
 package org.excavator.kamon
 
+import java.util.concurrent.TimeUnit
+
 import kamon.Kamon
+import kamon.trace.Tracer
 
 class KamonApp {
 
@@ -12,6 +15,20 @@ class KamonApp {
     Kamon.shutdown()
   }
 
-  def trance() = {
+  def tracerSegmentByBusiness() = {
+
+    val segment = Tracer.currentContext.startSegment("traceSegment", "business-logic", "kamon")
+
+    TimeUnit.SECONDS.sleep(5)
+
+    segment.finish()
+  }
+
+  def tracerSegmentByValidator() = {
+    val segment = Tracer.currentContext.startSegment("tracerSegmentByValidator", "validator-logic", "kamon")
+
+    TimeUnit.SECONDS.sleep(5)
+
+    segment.finish()
   }
 }
