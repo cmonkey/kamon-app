@@ -1,11 +1,12 @@
 package org.excavator.kamon
 
-import java.util.concurrent.TimeUnit
 
 import kamon.Kamon
 import kamon.trace.Tracer
+import org.slf4j.LoggerFactory
 
 class KamonApp {
+  val logger = LoggerFactory.getLogger(classOf[KamonApp])
 
   def start() = {
     Kamon.start()
@@ -27,17 +28,17 @@ class KamonApp {
 
   def tracerSegmentByBusiness() = {
 
-    val segment = Tracer.currentContext.startSegment("traceSegment", "business-logic", "kamon")
+    val segment = Kamon.tracer.newContext("context").startSegment("traceSegment", "business-logic", "kamon")
 
-    TimeUnit.SECONDS.sleep(5)
+    logger.info(s"segment status = ${segment.status}")
 
     segment.finish()
   }
 
   def tracerSegmentByValidator() = {
-    val segment = Tracer.currentContext.startSegment("tracerSegmentByValidator", "validator-logic", "kamon")
+    val segment = Kamon.tracer.newContext("context").startSegment("tracerSegmentByValidator", "validator-logic", "kamon")
 
-    TimeUnit.SECONDS.sleep(5)
+    logger.info(s"segment status = ${segment.status}")
 
     segment.finish()
   }
