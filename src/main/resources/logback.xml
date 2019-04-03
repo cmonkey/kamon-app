@@ -37,7 +37,7 @@
     </appender>
 
 
-    <logger name="org.excavator.rsocket.rpc" level="DEBUG"/>
+    <logger name="org.excavator.kamon" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="ROLLING-FILE"/>
